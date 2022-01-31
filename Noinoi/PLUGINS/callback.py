@@ -337,8 +337,47 @@ async def noipurge(_, query: CallbackQuery):
         ),
     )  
     
+@Client.on_callback_query(filters.regex("noinoianime"))
+async def noinoianime(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE ANIME COMMANDS**
+
+➯ /anime <anime>: returns information about the anime.
+➯ /character <character>: returns information about the character.
+➯ /manga <manga>: returns information about the manga.
+➯ /user <user>: returns information about a MyAnimeList user.
+➯ /upcoming: returns a list of new anime in the upcoming seasons.
+➯ /kaizoku <anime>: search an anime on animekaizoku.com
+➯ /kayo <anime>: search an anime on animekayo.com
+➯ /airing <anime>: returns anime airing info.
+➯ /whatanime - reply to gif or video
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )  
     
+@Client.on_callback_query(filters.regex("noinoichannel"))
+async def noinoichannel(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE ANIME COMMANDS**
+
+➯ /logchannel: get log channel info
+➯ /setlog: set the log channel.
+➯ /unsetlog: unset the log channel.
+Setting the log channel is done by:
+➯ adding the bot to the desired channel (as an admin!)
+➯ sending /setlog in the channel
+➯ forwarding the /setlog to the group
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )      
     
+        
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
