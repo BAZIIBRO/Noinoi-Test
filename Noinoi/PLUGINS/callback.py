@@ -183,23 +183,10 @@ async def cbsetup(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Groups", callback_data="noiadmins"),
-                    InlineKeyboardButton("Anime", callback_data="noianime"),
-                    InlineKeyboardButton("Approve", callback_data="noiapprove"),
+                    InlineKeyboardButton("welcome", callback_data="noiwel"),
+                    InlineKeyboardButton("Lyric", callback_data="noilyric"),
+                    InlineKeyboardButton("voice", callback_data="noivoice"),
                 ],
-                
-                [
-                    InlineKeyboardButton("Channel", callback_data="noichannel"),
-                    InlineKeyboardButton("Chatbot", callback_data="noichatbot"),
-                    InlineKeyboardButton("Extra", callback_data="noiextra"),
-                ],
-                
-                [
-                    InlineKeyboardButton("Feds", callback_data="noifeds"),
-                    InlineKeyboardButton("Filter", callback_data="noifilter"),
-                    InlineKeyboardButton("Funs", callback_data="noifuns"),
-                ],
-                
                 [
                     InlineKeyboardButton("How To Add Me ❓", callback_data="cbhowtouse"),
                 ],
@@ -207,165 +194,46 @@ async def cbsetup(_, query: CallbackQuery):
             ]
         ),
     )
-@Client.on_callback_query(filters.regex("noiadmins"))
+@Client.on_callback_query(filters.regex("noiwel"))
 async def noiwel(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE ALL GROUPS COAMMNDS IF YOU WANT TO CHEAK THEN PRESS BUTTON TO CHEAK.**
+        f"""🏮 **HEAR THE WELCOME PLUGIN ( soon )**
+
+➯ /setwelcome for set welcome message.
+
+➯ /resetwelcome for reset welcome message.
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("Groups", callback_data="noigroups"),
-                    InlineKeyboardButton("Promote", callback_data="noipromote"),
-                    InlineKeyboardButton("Bans", callback_data="noibans"),
-                ],
-                
-                [
-                    InlineKeyboardButton("Purge", callback_data="noipurge"),
-                    InlineKeyboardButton("Mute", callback_data="noimute"),
-                    InlineKeyboardButton("Warns", callback_data="noiwarns"),
-                ],
-                
-                [
-                    InlineKeyboardButton("Back", callback_data="cbsetup")
-                ],            
-            ]
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )
+@Client.on_callback_query(filters.regex("noilyric"))
+async def noilyric(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE LYRIC PLUGIN**
+
+➯ /lyric ( song name ) for the get lyric of song
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
         ),
     )
     
-# FEDS COMMANDS ******************************************************************************************************************************************* 
-
-@Client.on_callback_query(filters.regex("noifeds"))
-async def noifeds(_, query: CallbackQuery):
+@Client.on_callback_query(filters.regex("noivoice"))
+async def noivoice(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE ALL GROUPS COAMMNDS IF YOU WANT TO CHEAK THEN PRESS BUTTON TO CHEAK.**
+        f"""🏮 **HEAR THE VOICE PLUGIN**
+
+➯ /tts fot get voice from text message
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("Owner", callback_data="fed1"),
-                    InlineKeyboardButton("Admins", callback_data="fed2"),
-                ],
-                [
-                    InlineKeyboardButton("Users", callback_data="fed3")
-                ],
-                [
-                    InlineKeyboardButton("Back", callback_data="cbsetup")
-                ],            
-            ]
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
         ),
-    )
-    
-@Client.on_callback_query(filters.regex("fed1"))
-async def fed1(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""🏮 **HEAR THE OWNER COMMANDS**
+    )    
 
-➯ /newfed <fed_name>: Creates a Federation, One allowed per user
-➯ /renamefed <fed_id> <new_fed_name>: Renames the fed id to a new name
-➯ /delfed <fed_id>: Delete a Federation, and any information related to it. Will not cancel blocked users
-➯ /fpromote <user>: Assigns the user as a federation admin. Enables all commands for the user under Fed Admins
-➯ /fdemote <user>: Drops the User from the admin Federation to a normal User
-➯ /subfed <fed_id>: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed
-➯ /unsubfed <fed_id>: Unsubscribes to a given fed ID
-➯ /setfedlog <fed_id>: Sets the group as a fed log report base for the federation
-➯ /unsetfedlog <fed_id>: Removed the group as a fed log report base for the federation
-➯ /fbroadcast <message>: Broadcasts a messages to all groups that have joined your fed
-➯ /ftransfer <byreply>: Changes the owner of current joined fed to the replied user
-➯ /fedsubs: Shows the feds your group is subscribed to (broken rn)
-
-**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                
-                [InlineKeyboardButton("🔙 Go Back", callback_data="noifeds")]
-            
-            
-            ]
-        ),
-    ) 
-@Client.on_callback_query(filters.regex("fed2"))
-async def fed2(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""🏮 **HEAR THE ADMINS COMMANDS**
-
-➯ /fban <user> <reason>: Fed bans a user
-➯ /unfban <user> <reason>: Removes a user from a fed ban
-➯ /fedinfo <fed_id>: Information about the specified Federation
-➯ /joinfed <fed_id>: Join the current chat to the Federation. Only chat owners can do this. Every chat can only be in one Federation
-➯ /leavefed <fed_id>: Leave the Federation given. Only chat owners can do this
-➯ /setfrules <rules>: Arrange Federation rules
-➯ /fedadmins: Show Federation admin
-➯ /fbanlist: Displays all users who are victimized at the Federation at this time
-➯ /fedchats: Get all the chats that are connected in the Federation
-➯ /chatfed : See the Federation in the current chat
-
-**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                
-                [InlineKeyboardButton("🔙 Go Back", callback_data="noifeds")]
-            
-            
-            ]
-        ),
-    ) 
-    
-@Client.on_callback_query(filters.regex("fed3"))
-async def fed3(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""🏮 **HEAR THE USERS COMMANDS**
-
-➯ /fbanstat: Shows if you/or the user you are replying to or their username is fbanned somewhere or not
-➯ /fednotif <on/off>: Federation settings not in PM when there are users who are fbaned/unfbanned
-➯ /frules: See Federation regulations
-
-**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                
-                [InlineKeyboardButton("🔙 Go Back", callback_data="noifeds")]
-            
-            
-            ]
-        ),
-    )  
-    
-# FILTER COMMANDS . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
-
-@Client.on_callback_query(filters.regex("noifilter"))
-async def noigroups(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""🏮 **HEAR THE GROUPS COMMANDS**
-
-➯ /filter <keyword> <reply message>: Add a filter to this chat. The bot will now reply that message whenever 'keyword'is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you doin?
- Separate diff replies by %%% to get random replies
- Example: 
- /filter "filtername"
- Reply 1
- %%%
- Reply 2
- %%%
- Reply 3
-➯ /stop <filter keyword>: Stop that filter.
-
-Chat creator only:
-➯ /removeallfilters: Remove all chat filters at once.
-
-Note: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
-Check • /markdownhelp to know more
-
-**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                
-                [InlineKeyboardButton("🔙 Go Back", callback_data="noiadmins")]
-            
-            
-            ]
-        ),
     
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
@@ -373,15 +241,3 @@ async def close(_, query: CallbackQuery):
     if not a.can_manage_voice_chats:
         return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     await query.message.delete()
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
