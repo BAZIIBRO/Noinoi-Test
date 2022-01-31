@@ -197,7 +197,7 @@ async def cbsetup(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton("Fun", callback_data="noinoifun"),
                     InlineKeyboardButton("Greating", callback_data="noinoigreating"),
-                    InlineKeyboardButton("Group", callback_data="noinoigroup-1"),
+                    InlineKeyboardButton("Group", callback_data="noinoigroupop"),
                 ],
                 
                 [
@@ -634,7 +634,7 @@ Welcome markdown:
         ),
     )
     
-@Client.on_callback_query(filters.regex("noinoigroup-1"))
+@Client.on_callback_query(filters.regex("noinoigroupop"))
 async def noinoigroup-1(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""✨ ** Hear all Groups commands you can cheak the all commands and new featurs !**
