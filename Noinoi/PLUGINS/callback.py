@@ -706,7 +706,7 @@ async def noifsub(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE COUPLES COMMANDS**
 
-➯ /fsub {channel username} - To turn on and setup the channel.
+➯ /fsub  - To turn on and setup the channel.
     💡Do this first...
 ➯ /fsub - To get the current settings.
 ➯ /fsub disable - To turn of ForceSubscribe..
