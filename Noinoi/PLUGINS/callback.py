@@ -195,6 +195,12 @@ async def cbsetup(_, query: CallbackQuery):
                 ],
                 
                 [
+                    InlineKeyboardButton("Fun", callback_data="noinoifun"),
+                    InlineKeyboardButton("Greating", callback_data="noinoigreating"),
+                    InlineKeyboardButton("Group", callback_data="noinoigroup"),
+                ],
+                
+                [
                     InlineKeyboardButton("How To Add Me ❓", callback_data="cbhowtouse"),
                 ],
                 [InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")],
@@ -470,6 +476,108 @@ async def noifeduser(_, query: CallbackQuery):
         ),
     ) 
     
+@Client.on_callback_query(filters.regex("noinoifun"))
+async def noinoifun(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""✨ ** Hear all Fun commands you can cheak the all commands and new featurs !**
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Memes", callback_data="noimemes"),
+                    InlineKeyboardButton("Games", callback_data="noigames"),
+                    InlineKeyboardButton("Couple", callback_data="noicouple"),
+                ],
+                [
+                    InlineKeyboardButton("Fonts", callback_data="noifonts"),
+                ],
+                [
+                    InlineKeyboardButton("ʙ ᴀ ᴄ ᴋ", callback_data="cbsetup")
+                ],
+            ]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noimemes"))
+async def noimemes(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE MEMES COMMANDS**
+
+➯ /runs: reply a random string from an array of replies
+➯ /slap: slap a user, or get slapped if not a reply
+➯ /shrug: get shrug XD
+➯ /table: get flip/unflip :v
+➯ /decide: Randomly answers yes/no/maybe
+➯ /toss: Tosses A coin
+➯ /bluetext: check urself :V
+➯ /roll: Roll a dice
+➯ /rlg: Join ears,nose,mouth and create an emo ;-;
+➯ /shout <keyword>: write anything you want to give loud shout
+➯ /weebify <text>: returns a weebified text
+➯ /sanitize: always use this before /pat or any contact
+➯ /pat: pats a user, or get patted
+➯ /8ball: predicts using 8ball method
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noiemojis"))
+async def noiemojis(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE EMOJIS COMMANDS**
+
+➯ /game or /games : we have added some games for you.
+
+ Play Game With Emojis:
+➯ /dice or /dice 1 to 6 any value
+➯ /ball or /ball 1 to 5 any value
+➯ /dart or /dart 1 to 6 any value
+ Usage: hahaha just a magic.
+ warning: you would be in trouble if you input any other value than mentionedinteger X>: deletes the replied message, and X messages following it if replied to a message.
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )    
+    
+@Client.on_callback_query(filters.regex("noicouple"))
+async def noicouple(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE COUPLES COMMANDS**
+
+➯ /couples - To Choose Couple Of The Day.
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noifonts"))
+async def noifonts(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE FONTS COMMANDS**
+
+➯ /weebify <text>: weebify your text!
+➯ /bubble <text>: bubble your text!
+➯ /fbubble <text>: bubble-filled your text!
+➯ /square <text>: square your text!
+➯ /fsquare <text>: square-filled your text!
+➯ /blue <text>: bluify your text!
+➯ /latin <text>: latinify your text!
+➯ /lined <text>: lined your text!
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+   
         
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
