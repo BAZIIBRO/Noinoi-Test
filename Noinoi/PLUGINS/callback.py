@@ -396,7 +396,7 @@ Check • /markdownhelp to know more
 @Client.on_callback_query(filters.regex("noigroups"))
 async def noigroups(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE GROUPS COMMANDS**
+        f"""🏮 **HEAR THE GROUPS COMMANDS **
 
 ➯ /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users
 ➯ /unpin: unpins the currently pinned message
