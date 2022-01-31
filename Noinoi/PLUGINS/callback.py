@@ -710,7 +710,7 @@ async def noifsub(_, query: CallbackQuery):
     💡Do this first...
 ➯ /fsub - To get the current settings.
 ➯ /fsub disable - To turn of ForceSubscribe..
-    💡If you disable fsub, you need to set again for working.. /fsub {channel username} 
+    💡If you disable fsub, you need to set again for working.. /fsub
 ➯ /fsub clear - To unmute all members who muted by me
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
