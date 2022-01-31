@@ -183,7 +183,7 @@ async def cbsetup(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Groups", callback_data="noigroups"),
+                    InlineKeyboardButton("Groups", callback_data="noiadmins"),
                     InlineKeyboardButton("Anime", callback_data="noianime"),
                     InlineKeyboardButton("Approve", callback_data="noiapprove"),
                 ],
@@ -194,7 +194,7 @@ async def cbsetup(_, query: CallbackQuery):
             ]
         ),
     )
-@Client.on_callback_query(filters.regex("noigroups"))
+@Client.on_callback_query(filters.regex("noiadmins"))
 async def noiwel(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE ALL GROUPS COAMMNDS IF YOU WANT TO CHEAK THEN PRESS BUTTON TO CHEAK.**
@@ -203,21 +203,153 @@ async def noiwel(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Admin", callback_data="noiadmins"),
+                    InlineKeyboardButton("Groups", callback_data="noigroups"),
                     InlineKeyboardButton("Promote", callback_data="noipromote"),
                     InlineKeyboardButton("Bans", callback_data="noibans"),
                 ],
                 
                 [
+                    InlineKeyboardButton("Purge", callback_data="noipurge"),
+                    InlineKeyboardButton("Mute", callback_data="noimute"),
                     InlineKeyboardButton("Warns", callback_data="noiwarns"),
                 ],
                 
                 [
-                    InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")
+                    InlineKeyboardButton("Back", callback_data="cbsetup")
                 ],            
             ]
         ),
     )
+# groups enter commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
+
+@Client.on_callback_query(filters.regex("noigroups"))
+async def noilyric(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE GROUPS COMMANDS**
+
+➯ /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users
+➯ /unpin: unpins the currently pinned message
+➯ /invitelink: gets invitelink
+➯ /setgtitle <newtitle>: Sets new chat title in your group.
+➯ /setgpic: As a reply to file or photo to set group profile pic!
+➯ /delgpic: Same as above but to remove group profile pic.
+➯ /setsticker: As a reply to some sticker to set it as group sticker set!
+➯ /setdescription <description>: Sets new chat description in group.
+➯ /antispam <on/off/yes/no>: Will toggle our antispam tech or return your current settings.
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("🔙 Go Back", callback_data="noiadmins")]
+            
+            
+            ]
+        ),
+    )
+@Client.on_callback_query(filters.regex("noipromote"))
+async def noilyric(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE GROUPS COMMANDS**
+
+➯ /promote: promotes the user
+➯ /demote: demotes the user
+➯ /title <title here>: sets a custom title for an admin that the bot promoted
+➯ /admincache: force refresh the admins list
+➯ /fullpromote: if you want to promote an user with full rights then use it
+➯ /fullpromote: if you want to fully promoted admin demote then use it
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("Back", callback_data="noiadmins")]
+            
+            
+            ]
+        ),
+    )
+@Client.on_callback_query(filters.regex("noibans"))
+async def noilyric(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE GROUPS COMMANDS**
+
+➯ /ban <userhandle>: bans a user. (via handle, or reply)
+➯ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
+➯ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+➯ /unban <userhandle>: unbans a user. (via handle, or reply)
+➯ /punch <userhandle>: Punches a user out of the group, (via handle, or reply)
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("Back", callback_data="noiadmins")]
+            
+            
+            ]
+        ),
+    )
+@Client.on_callback_query(filters.regex("noipurge"))
+async def noilyric(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE PURGE COMMANDS**
+
+➯ /del: deletes the message you replied to
+➯ /purge: deletes all messages between this and the replied to message.
+➯ /purge <number>: if replied to with a number, deletes that many messages from target message, if sent normally in group then delete from current to previous messages
+➯ /purgefrom: marks a start point to purge from
+➯ /purgeto: marks the end point, messages bet to and from are deleted
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("Back", callback_data="noiadmins")]
+            
+            
+            ]
+        ),
+    )
+@Client.on_callback_query(filters.regex("noimute"))
+async def noilyric(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE PURGE COMMANDS**
+
+➯ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
+➯ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+➯ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("Back", callback_data="noiadmins")]
+            
+            
+            ]
+        ),
+    )
+@Client.on_callback_query(filters.regex("noiwarns"))
+async def noilyric(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE PURGE COMMANDS**
+
+➯ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
+➯ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+➯ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("Back", callback_data="noiadmins")]
+            
+            
+            ]
+        ),
+    )    
+
 @Client.on_callback_query(filters.regex("noianime"))
 async def noilyric(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -260,6 +392,25 @@ async def noivoice(_, query: CallbackQuery):
             [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
         ),
     )    
+    
+    
+@Client.on_callback_query(filters.regex("noipromote"))
+async def noivoice(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE PROMOTE COMMANDS**
+
+➯ /approval: Check a user's approval status in this chat.
+➯ /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
+➯ /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
+➯ /approved: List all approved users.
+➯ /unapproveall: Unapprove ALL users in a chat. This cannot be undone.
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )    
+
 
     
 @Client.on_callback_query(filters.regex("cls"))
