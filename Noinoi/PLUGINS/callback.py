@@ -202,38 +202,38 @@ async def cbsetup(_, query: CallbackQuery):
         ),
     )
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-@Client.on_callback_query(filters.regex("noiwel"))
-async def noiwel(_, query: CallbackQuery):
+# ALL COMMANDS SETUP ***********************************************************************************************************************************************************
+
+@Client.on_callback_query(filters.regex("noinoiadmin"))
+async def noinoiadmin(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE WELCOME PLUGIN ( soon )**
+        f"""✨ ** Hear all admins commands you can cheak the all commands and new featurs !**
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Group", callback_data="noigroup"),
+                    InlineKeyboardButton("Promote", callback_data="noipromote"),
+                    InlineKeyboardButton("Ban", callback_data="noiban"),
+                ],
+                [
+                    InlineKeyboardButton("Mute", callback_data="noimute"),
+                    InlineKeyboardButton("Warn", callback_data="noiwarn"),
+                    InlineKeyboardButton("Purge", callback_data="noipurge"),
+                ],
+                [
+                    InlineKeyboardButton("ʙ ᴀ ᴄ ᴋ", callback_data="cbsetup")
+                ],
+            ]
+        ),
+    )
+
+
+@Client.on_callback_query(filters.regex("noigroup"))
+async def noigroup(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE GROUPS COMMANDS**
 
 ➯ /setwelcome for set welcome message.
 
@@ -241,35 +241,76 @@ async def noiwel(_, query: CallbackQuery):
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoiadmin")]]
         ),
     )
-@Client.on_callback_query(filters.regex("noilyric"))
-async def noilyric(_, query: CallbackQuery):
+@Client.on_callback_query(filters.regex("noipromote"))
+async def noipromote(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE LYRIC PLUGIN**
+        f"""🏮 **HEAR THE PROMOTE COMMANDS**
 
 ➯ /lyric ( song name ) for the get lyric of song
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoiadmin")]]
         ),
     )
     
-@Client.on_callback_query(filters.regex("noivoice"))
-async def noivoice(_, query: CallbackQuery):
+@Client.on_callback_query(filters.regex("noiban"))
+async def noiban(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE VOICE PLUGIN**
+        f"""🏮 **HEAR THE BAN COMMANDS**
 
 ➯ /tts fot get voice from text message
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoiadmin")]]
         ),
     )    
 
+@Client.on_callback_query(filters.regex("noimute"))
+async def noimute(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE GROUPS COMMANDS**
+
+➯ /setwelcome for set welcome message.
+
+➯ /resetwelcome for reset welcome message.
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoiadmin")]]
+        ),
+    )
+@Client.on_callback_query(filters.regex("noiwarn"))
+async def noiwarn(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE PROMOTE COMMANDS**
+
+➯ /lyric ( song name ) for the get lyric of song
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoiadmin")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noipurge"))
+async def noipurge(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE BAN COMMANDS**
+
+➯ /tts fot get voice from text message
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoiadmin")]]
+        ),
+    )  
+    
+    
     
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
