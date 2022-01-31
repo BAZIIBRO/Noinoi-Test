@@ -358,14 +358,12 @@ async def fed3(_, query: CallbackQuery):
     )  
     
 # FILTER COMMANDS . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
+
   @Client.on_callback_query(filters.regex("noifilter"))
-async def noifilter(_, query: CallbackQuery):
+async def noigroups(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE FILTER COMMANDS**
+        f"""🏮 **HEAR THE GROUPS COMMANDS**
 
-➯ /filters: List all active filters saved in the chat.
-
-Admin only:
 ➯ /filter <keyword> <reply message>: Add a filter to this chat. The bot will now reply that message whenever 'keyword'is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you doin?
  Separate diff replies by %%% to get random replies
  Example: 
@@ -381,18 +379,18 @@ Chat creator only:
 ➯ /removeallfilters: Remove all chat filters at once.
 
 Note: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
-Check • /markdownhelp to know more!
+Check • /markdownhelp to know more
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
             [
                 
-                [InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]
+                [InlineKeyboardButton("🔙 Go Back", callback_data="noiadmins")]
             
             
             ]
         ),
-    ) 
+        
 # groups enter commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
 
 @Client.on_callback_query(filters.regex("noigroups"))
@@ -420,6 +418,7 @@ async def noigroups(_, query: CallbackQuery):
             ]
         ),
     )
+    
 @Client.on_callback_query(filters.regex("noipromote"))
 async def noipromote(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -442,6 +441,7 @@ async def noipromote(_, query: CallbackQuery):
             ]
         ),
     )
+    
 @Client.on_callback_query(filters.regex("noibans"))
 async def noibans(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -463,6 +463,7 @@ async def noibans(_, query: CallbackQuery):
             ]
         ),
     )
+    
 @Client.on_callback_query(filters.regex("noipurge"))
 async def noipurge(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -484,6 +485,7 @@ async def noipurge(_, query: CallbackQuery):
             ]
         ),
     )
+    
 @Client.on_callback_query(filters.regex("noimute"))
 async def noimute(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -503,6 +505,7 @@ async def noimute(_, query: CallbackQuery):
             ]
         ),
     )
+    
 @Client.on_callback_query(filters.regex("noiwarns"))
 async def noiwarns(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -528,7 +531,9 @@ async def noiwarns(_, query: CallbackQuery):
             ]
         ),
     )    
+    
 # ANIME COMMANDS *********************************************************************************************************************************
+
 @Client.on_callback_query(filters.regex("noianime"))
 async def noianime(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -554,6 +559,7 @@ async def noianime(_, query: CallbackQuery):
             ]
         ),
     )
+    
 @Client.on_callback_query(filters.regex("noiapprove"))
 async def noiapprove(_, query: CallbackQuery):
     await query.edit_message_text(
