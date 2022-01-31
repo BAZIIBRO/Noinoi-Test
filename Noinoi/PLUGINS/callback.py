@@ -223,7 +223,7 @@ async def noiwel(_, query: CallbackQuery):
 # groups enter commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
 
 @Client.on_callback_query(filters.regex("noigroups"))
-async def noilyric(_, query: CallbackQuery):
+async def noigroups(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE GROUPS COMMANDS**
 
@@ -248,7 +248,7 @@ async def noilyric(_, query: CallbackQuery):
         ),
     )
 @Client.on_callback_query(filters.regex("noipromote"))
-async def noilyric(_, query: CallbackQuery):
+async def noipromote(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE GROUPS COMMANDS**
 
@@ -270,7 +270,7 @@ async def noilyric(_, query: CallbackQuery):
         ),
     )
 @Client.on_callback_query(filters.regex("noibans"))
-async def noilyric(_, query: CallbackQuery):
+async def noibans(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE GROUPS COMMANDS**
 
@@ -291,7 +291,7 @@ async def noilyric(_, query: CallbackQuery):
         ),
     )
 @Client.on_callback_query(filters.regex("noipurge"))
-async def noilyric(_, query: CallbackQuery):
+async def noipurge(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE PURGE COMMANDS**
 
@@ -312,7 +312,7 @@ async def noilyric(_, query: CallbackQuery):
         ),
     )
 @Client.on_callback_query(filters.regex("noimute"))
-async def noilyric(_, query: CallbackQuery):
+async def noimute(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE PURGE COMMANDS**
 
@@ -331,7 +331,7 @@ async def noilyric(_, query: CallbackQuery):
         ),
     )
 @Client.on_callback_query(filters.regex("noiwarns"))
-async def noilyric(_, query: CallbackQuery):
+async def noiwarns(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE PURGE COMMANDS**
 
@@ -351,7 +351,7 @@ async def noilyric(_, query: CallbackQuery):
     )    
 
 @Client.on_callback_query(filters.regex("noianime"))
-async def noilyric(_, query: CallbackQuery):
+async def noianime(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE ANIME COMMANDS**
 
@@ -377,7 +377,7 @@ async def noilyric(_, query: CallbackQuery):
     )
     
 @Client.on_callback_query(filters.regex("noiapprove"))
-async def noivoice(_, query: CallbackQuery):
+async def noiapprove(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE APPROVE COMMANDS**
 
@@ -394,8 +394,8 @@ async def noivoice(_, query: CallbackQuery):
     )    
     
     
-@Client.on_callback_query(filters.regex("noipromote"))
-async def noivoice(_, query: CallbackQuery):
+@Client.on_callback_query(filters.regex("noipromo"))
+async def noipromo(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE PROMOTE COMMANDS**
 
