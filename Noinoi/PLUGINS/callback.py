@@ -635,7 +635,7 @@ Welcome markdown:
     )
     
 @Client.on_callback_query(filters.regex("noinoigroupop"))
-async def noinoigroup-1(_, query: CallbackQuery):
+async def noinoigroupop(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""✨ ** Hear all Groups commands you can cheak the all commands and new featurs !**
 
