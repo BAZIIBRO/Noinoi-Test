@@ -336,7 +336,8 @@ async def fed2(_, query: CallbackQuery):
             ]
         ),
     ) 
-  @Client.on_callback_query(filters.regex("fed3"))
+    
+@Client.on_callback_query(filters.regex("fed3"))
 async def fed3(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE USERS COMMANDS**
@@ -354,7 +355,8 @@ async def fed3(_, query: CallbackQuery):
             
             ]
         ),
-    ) 
+    )  
+    
 # FILTER COMMANDS . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
   @Client.on_callback_query(filters.regex("noifilter"))
 async def noifilter(_, query: CallbackQuery):
