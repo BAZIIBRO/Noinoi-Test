@@ -187,6 +187,13 @@ async def cbsetup(_, query: CallbackQuery):
                     InlineKeyboardButton("Anime", callback_data="noianime"),
                     InlineKeyboardButton("Approve", callback_data="noiapprove"),
                 ],
+                
+                [
+                    InlineKeyboardButton("Channel", callback_data="noichannel"),
+                    InlineKeyboardButton("Chatbot", callback_data="noichatbot"),
+                    InlineKeyboardButton("Extra", callback_data="noiextra"),
+                ],
+                
                 [
                     InlineKeyboardButton("How To Add Me ❓", callback_data="cbhowtouse"),
                 ],
@@ -355,7 +362,7 @@ async def noiwarns(_, query: CallbackQuery):
             ]
         ),
     )    
-
+# ANIME COMMANDS *********************************************************************************************************************************
 @Client.on_callback_query(filters.regex("noianime"))
 async def noianime(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -381,7 +388,7 @@ async def noianime(_, query: CallbackQuery):
             ]
         ),
     )
-    
+# APPROVE COMMANDS *********************************************************************************************************************************
 @Client.on_callback_query(filters.regex("noiapprove"))
 async def noiapprove(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -400,24 +407,102 @@ async def noiapprove(_, query: CallbackQuery):
     )    
     
     
-@Client.on_callback_query(filters.regex("noipromo"))
-async def noipromo(_, query: CallbackQuery):
+# CHANNELS COMMANDS *****************************************************************************************************************************************
+    
+@Client.on_callback_query(filters.regex("noichannel"))
+async def noiapprove(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE PROMOTE COMMANDS**
+        f"""🏮 **HEAR THE CHANNEL COMMANDS**
 
-➯ /approval: Check a user's approval status in this chat.
-➯ /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-➯ /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-➯ /approved: List all approved users.
-➯ /unapproveall: Unapprove ALL users in a chat. This cannot be undone.
+➯ /logchannel: get log channel info
+➯ /setlog: set the log channel.
+➯ /unsetlog: unset the log channel.
+➯ sending /setlog in the channel
+➯ forwarding the /setlog to the group
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
         ),
     )    
+    
+@Client.on_callback_query(filters.regex("noichatbot"))
+async def noiapprove(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE CHATBOT COMMANDS**
 
+➯ /Chatbot: Shows chatbot control panel
 
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )    
+    
+@Client.on_callback_query(filters.regex("noiextra"))
+async def noiapprove(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE EXTRA COMMANDS**
+
+➯ /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats
+Paste:
+➯ /paste: Saves replied content to nekobin.com and replies with a url
+React:
+➯ /react: Reacts with a random reaction 
+Urban Dictonary:
+➯ /ud <word>: Type the word or expression you want to search use
+Wikipedia:
+➯ /wiki <query>: wikipedia your query
+Wallpapers:
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+Currency converter: 
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+ /cash: currency converter
+Example:
+ /cash 1 USD INR  
+      OR
+ /cash 1 usd inr
+Output: 1.0 USD = 75.505 INR
+
+MATHS
+Solves complex math problems using https://newton.now.sh
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+ /math: Math /math 2^2+2(2)
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+ /factor: Factor /factor x^2 + 2x
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+ /derive: Derive /derive x^2+2x
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+ /integrate: Integrate /integrate x^2+2x
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+ /zeroes: Find 0's /zeroes x^2+2x
+➯ /wall <query>: get a wallpaper from wall.alphacoders.com
+ /tangent: Find Tangent /tangent 2lx^3
+➯ /area: Area Under Curve /area 2:4lx^3
+➯ /cos: Cosine /cos pi
+➯ /sin: Sine /sin 0
+➯ /tan: Tangent /tan 0
+➯ /arccos: Inverse Cosine /arccos 1
+➯ /arcsin: Inverse Sine /arcsin 0
+➯ /arctan: Inverse Tangent /arctan 0
+➯ /abs: Absolute Value /abs -1
+➯ /log: Logarithm /log 2l8
+
+Keep in mind: To find the tangent line of a function at a certain x value, send the request as c|f(x) where c is the given x value and f(x) is the function expression, the separator is a vertical bar '|'. See the table above for an example request.
+To find the area under a function, send the request as c:d|f(x) where c is the starting x value, d is the ending x value, and f(x) is the function under which you want the curve between the two x values.
+To compute fractions, enter expressions as numerator(over)denominator. For example, to process 2/4 you must send in your expression as 2(over)4. The result expression will be in standard math notation (1/2, 3/4).
+
+💡Read From Top
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )
+    
+    
+    
+    
     
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
@@ -426,10 +511,6 @@ async def close(_, query: CallbackQuery):
         return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     await query.message.delete()
 
-    
-    # BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO
-    
-    # SETUPS COMMANDS
     
     
     
