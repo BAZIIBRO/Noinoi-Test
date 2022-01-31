@@ -373,8 +373,8 @@ async def noianime(_, query: CallbackQuery):
 ➯ /manga <manga>: returns information about the manga.
 ➯ /user <user>: returns information about a MyAnimeList user.
 ➯ /upcoming: returns a list of new anime in the upcoming seasons.
-➯ /kaizoku <anime>: search an anime on animekaizoku.com
-➯ /kayo <anime>: search an anime on animekayo.com
+➯ /kaizoku <anime>: search an anime.
+➯ /kayo <anime>: search an anime.
 ➯ /airing <anime>: returns anime airing info.
 ➯ /whatanime - reply to gif or video
 
@@ -388,11 +388,10 @@ async def noianime(_, query: CallbackQuery):
             ]
         ),
     )
-# APPROVE COMMANDS *********************************************************************************************************************************
 @Client.on_callback_query(filters.regex("noiapprove"))
 async def noiapprove(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE APPROVE COMMANDS**
+        f"""🏮 **HEAR THE ANIME COMMANDS**
 
 ➯ /approval: Check a user's approval status in this chat.
 ➯ /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
@@ -402,12 +401,14 @@ async def noiapprove(_, query: CallbackQuery):
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+            [
+                
+                [InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]
+            
+            
+            ]
         ),
-    )    
-    
-    
-# CHANNELS COMMANDS *****************************************************************************************************************************************
+    )
     
 @Client.on_callback_query(filters.regex("noichannel"))
 async def noiapprove(_, query: CallbackQuery):
@@ -465,19 +466,6 @@ Example:
 Output: 1.0 USD = 75.505 INR
 
 MATHS
-Solves complex math problems using https://newton.now.sh
-➯ /wall <query>: get a wallpaper from wall.alphacoders.com
- /math: Math /math 2^2+2(2)
-➯ /wall <query>: get a wallpaper from wall.alphacoders.com
- /factor: Factor /factor x^2 + 2x
-➯ /wall <query>: get a wallpaper from wall.alphacoders.com
- /derive: Derive /derive x^2+2x
-➯ /wall <query>: get a wallpaper from wall.alphacoders.com
- /integrate: Integrate /integrate x^2+2x
-➯ /wall <query>: get a wallpaper from wall.alphacoders.com
- /zeroes: Find 0's /zeroes x^2+2x
-➯ /wall <query>: get a wallpaper from wall.alphacoders.com
- /tangent: Find Tangent /tangent 2lx^3
 ➯ /area: Area Under Curve /area 2:4lx^3
 ➯ /cos: Cosine /cos pi
 ➯ /sin: Sine /sin 0
