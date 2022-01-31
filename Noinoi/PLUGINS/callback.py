@@ -197,7 +197,7 @@ async def cbsetup(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton("Fun", callback_data="noinoifun"),
                     InlineKeyboardButton("Greating", callback_data="noinoigreating"),
-                    InlineKeyboardButton("Group", callback_data="noinoigroup"),
+                    InlineKeyboardButton("Group", callback_data="noinoigroup-1"),
                 ],
                 
                 [
@@ -476,6 +476,35 @@ async def noifeduser(_, query: CallbackQuery):
         ),
     ) 
     
+    
+@Client.on_callback_query(filters.regex("noinoifilters"))
+async def noinoifilters(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE FED OWNER COMMANDS**
+
+➯ /filter <keyword> <reply message>: Add a filter to this chat. The bot will now reply that message whenever 'keyword'is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you doin?
+ Separate diff replies by %%% to get random replies
+ Example: 
+ /filter "filtername"
+ Reply 1
+ %%%
+ Reply 2
+ %%%
+ Reply 3
+➯ /stop <filter keyword>: Stop that filter.
+
+Chat creator only:
+➯ /removeallfilters: Remove all chat filters at once.
+
+Note: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
+Check ➯ /markdownhelp to know more!
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )
+    
+    
 @Client.on_callback_query(filters.regex("noinoifun"))
 async def noinoifun(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -577,6 +606,193 @@ async def noifonts(_, query: CallbackQuery):
             [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
         ),
     )
+    
+@Client.on_callback_query(filters.regex("noinoigreating"))
+async def noinoigreating(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE FONTS COMMANDS**
+
+➯ /welcome <on/off>: enable/disable welcome messages.
+➯ /welcome: shows current welcome settings.
+➯ /welcome noformat: shows current welcome settings, without the formatting - useful to recycle your welcome messages!
+➯ /goodbye: same usage and args as /welcome.
+➯ /setwelcome <sometext>: set a custom welcome message. If used replying to media, uses that media.
+➯ /setgoodbye <sometext>: set a custom goodbye message. If used replying to media, uses that media.
+➯ /resetwelcome: reset to the default welcome message.
+➯ /resetgoodbye: reset to the default goodbye message.
+➯ /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
+➯ /welcomemutehelp: gives information about welcome mutes.
+➯ /cleanservice <on/off>: deletes telegrams welcome/left service messages.
+ Example:
+user joined chat, user left chat.
+Welcome markdown:
+➯ /welcomehelp: view more formatting information for custom welcome/goodbye messages
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noinoigroup-1"))
+async def noinoigroup-1(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""✨ ** Hear all Groups commands you can cheak the all commands and new featurs !**
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Backup", callback_data="noibackup"),
+                    InlineKeyboardButton("Blacklist", callback_data="noibl"),
+                    InlineKeyboardButton("F-Sub", callback_data="noifsub"),
+                ],
+                [
+                    InlineKeyboardButton("Control", callback_data="noicon"),
+                    InlineKeyboardButton("Disable", callback_data="noidis"),
+                    InlineKeyboardButton("Nightmod", callback_data="noinight"),
+                ],
+                [
+                    InlineKeyboardButton("ʙ ᴀ ᴄ ᴋ", callback_data="cbsetup")
+                ],
+            ]
+        ),
+    )
+
+@Client.on_callback_query(filters.regex("noibackup"))
+async def noibackup(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE COUPLES COMMANDS**
+
+➯ /import: Reply to the backup file for the Yone group to import as much as possible, making transfers very easy!  Note that files / photos cannot be imported due to telegram restrictions.
+➯ /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons)
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noibl"))
+async def noibl(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE COUPLES COMMANDS**
+
+➯ /blacklist: View the current blacklisted words.
+ 
+ Admin only:
+➯ /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
+➯ /unblacklist <triggers>: Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
+➯ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
+ 
+ Blacklist sticker is used to stop certain stickers. Whenever a sticker is sent, the message will be deleted immediately.
+ NOTE: Blacklist stickers do not affect the group admin
+➯ /blsticker: See current blacklisted sticker
+ Only admin:
+➯ /addblsticker <sticker link>: Add the sticker trigger to the black list. Can be added via reply sticker
+➯ /unblsticker <sticker link>: Remove triggers from blacklist. The same newline logic applies here, so you can delete multiple triggers at once
+➯ /rmblsticker <sticker link>: Same as above
+➯ /blstickermode <ban/tban/mute/tmute>: sets up a default action on what to do if users use blacklisted stickers
+➯ <sticker link> can be https://t.me/addstickers/<sticker> or just <sticker> or reply to the sticker message
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noifsub"))
+async def noifsub(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE COUPLES COMMANDS**
+
+➯ /fsub {channel username} - To turn on and setup the channel.
+    💡Do this first...
+➯ /fsub - To get the current settings.
+➯ /fsub disable - To turn of ForceSubscribe..
+    💡If you disable fsub, you need to set again for working.. /fsub {channel username} 
+➯ /fsub clear - To unmute all members who muted by me
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noicon"))
+async def noicon(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE COUPLES COMMANDS**
+
+  Blue text cleaner removed any made up commands that people send in your chat.
+➯ /cleanblue <on/off/yes/no>: clean commands after sending
+➯ /ignoreblue <word>: prevent auto cleaning of the command
+➯ /unignoreblue <word>: remove prevent auto cleaning of the command
+➯ /listblue: list currently whitelisted commands
+ 
+ Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood will result in restricting that user.
+  This will mute users if they send more than 10 messages in a row, bots are ignored.
+➯ /flood: Get the current flood control setting
+➯ Admins only:
+➯ /setflood <int/'no'/'off'>: enables or disables flood control
+  Example: /setflood 10
+➯ /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
+➯ Note:
+➯ Value must be filled for tban and tmute!!
+  It can be:
+  5m = 5 minutes
+  6h = 6 hours
+  3d = 3 days
+  1w = 1 week
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noidis"))
+async def noidis(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE COUPLES COMMANDS**
+
+➯ /cmds: check the current status of disabled commands  
+   Admins only:
+➯ /enable <cmd name>: enable that command
+➯ /disable <cmd name>: disable that command
+➯ /enablemodule <module name>: enable all commands in that module
+➯ /disablemodule <module name>: disable all commands in that module
+➯  /listcmds: list all possible toggleable commands
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("noinight"))
+async def noinight(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE COUPLES COMMANDS**
+
+➯ /addnt: Adds Group to NightMode Chats
+➯ /rmnt: Removes Group From NightMode Chats
+ Note: Night Mode chats get Automatically closed at 12pm(IST)
+ and Automatically openned at 6am(IST) To Prevent Night Spams.
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="noinoifun")]]
+        ),
+    )
+    
+    
+    
+    
+    
+    
+    
+    
+    
    
         
 @Client.on_callback_query(filters.regex("cls"))
