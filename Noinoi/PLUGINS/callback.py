@@ -195,6 +195,36 @@ async def cbsetup(_, query: CallbackQuery):
                 ],
                 
                 [
+                    InlineKeyboardButton("Feds", callback_data="noifeds"),
+                    InlineKeyboardButton("Filter", callback_data="noifilter"),
+                    InlineKeyboardButton("Funs", callback_data="noifuns"),
+                ],
+                
+                [
+                    InlineKeyboardButton("Welcome", callback_data="noiwelcome"),
+                    InlineKeyboardButton("Locks", callback_data="noilocks"),
+                    InlineKeyboardButton("Logo", callback_data="noilogo"),
+                ],
+                
+                [
+                    InlineKeyboardButton("Mention", callback_data="noimention"),
+                    InlineKeyboardButton("Notes", callback_data="noinotes"),
+                    InlineKeyboardButton("Remainder", callback_data="noiremainder"),
+                ],
+                
+                [
+                    InlineKeyboardButton("Report", callback_data="noireport"),
+                    InlineKeyboardButton("Rules", callback_data="noirules"),
+                    InlineKeyboardButton("Security", callback_data="noisecurity"),
+                ],
+                
+                [
+                    InlineKeyboardButton("Sticker", callback_data="noisticker"),
+                    InlineKeyboardButton("Tools", callback_data="noitools"),
+                    InlineKeyboardButton("Users", callback_data="noiusers"),
+                ],
+                
+                [
                     InlineKeyboardButton("How To Add Me ❓", callback_data="cbhowtouse"),
                 ],
                 [InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")],
