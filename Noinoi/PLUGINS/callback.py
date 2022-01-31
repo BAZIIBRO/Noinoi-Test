@@ -235,9 +235,15 @@ async def noigroup(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE GROUPS COMMANDS**
 
-➯ /setwelcome for set welcome message.
-
-➯ /resetwelcome for reset welcome message.
+➯ /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users
+➯ /unpin: unpins the currently pinned message
+➯ /invitelink: gets invitelink
+➯ /setgtitle <newtitle>: Sets new chat title in your group.
+➯ /setgpic: As a reply to file or photo to set group profile pic!
+➯ /delgpic: Same as above but to remove group profile pic.
+➯ /setsticker: As a reply to some sticker to set it as group sticker set!
+➯ /setdescription <description>: Sets new chat description in group.
+➯ /antispam <on/off/yes/no>: Will toggle our antispam tech or return your current settings.
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
@@ -249,7 +255,12 @@ async def noipromote(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE PROMOTE COMMANDS**
 
-➯ /lyric ( song name ) for the get lyric of song
+➯ /promote: promotes the user
+➯ /demote: demotes the user
+➯ /title <title here>: sets a custom title for an admin that the bot promoted
+➯ /admincache: force refresh the admins list
+➯ /fullpromote: if you want to promote an user with full rights then use it
+➯ /fullpromote: if you want to fully promoted admin demote then use it
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
@@ -262,7 +273,11 @@ async def noiban(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE BAN COMMANDS**
 
-➯ /tts fot get voice from text message
+➯ /ban <userhandle>: bans a user. (via handle, or reply)
+➯ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
+➯ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+➯ /unban <userhandle>: unbans a user. (via handle, or reply)
+➯ /punch <userhandle>: Punches a user out of the group, (via handle, or reply)
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
@@ -273,11 +288,11 @@ async def noiban(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("noimute"))
 async def noimute(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE GROUPS COMMANDS**
+        f"""🏮 **HEAR THE MUTE COMMANDS**
 
-➯ /setwelcome for set welcome message.
-
-➯ /resetwelcome for reset welcome message.
+➯ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
+➯ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+➯ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
@@ -287,9 +302,17 @@ async def noimute(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("noiwarn"))
 async def noiwarn(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE PROMOTE COMMANDS**
+        f"""🏮 **HEAR THE WARN COMMANDS**
 
-➯ /lyric ( song name ) for the get lyric of song
+➯ /warns <userhandle>: get a user's number, and reason, of warns.
+➯ /warnlist: list of all current warning filters
+➯ /warn <userhandle>: warn a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+➯ /dwarn <userhandle>: warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+➯ /resetwarn <userhandle>: reset the warns for a user. Can also be used as a reply.
+➯ /addwarn <keyword> <reply message>: set a warning filter on a certain keyword. If you want your keyword to   be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user.
+➯ /nowarn <keyword>: stop a warning filter
+➯ /warnlimit <num>: set the warning limit
+➯ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
@@ -300,9 +323,13 @@ async def noiwarn(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("noipurge"))
 async def noipurge(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE BAN COMMANDS**
+        f"""🏮 **HEAR THE PURGE COMMANDS**
 
-➯ /tts fot get voice from text message
+➯ /del: deletes the message you replied to
+➯ /purge: deletes all messages between this and the replied to message.
+➯ /purge <number>: if replied to with a number, deletes that many messages from target message, if sent normally in group then delete from current to previous messages
+➯ /purgefrom: marks a start point to purge from
+➯ /purgeto: marks the end point, messages bet to and from are deleted
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
