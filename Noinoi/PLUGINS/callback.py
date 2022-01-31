@@ -183,9 +183,9 @@ async def cbsetup(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("welcome", callback_data="noiwel"),
-                    InlineKeyboardButton("Lyric", callback_data="noilyric"),
-                    InlineKeyboardButton("voice", callback_data="noivoice"),
+                    InlineKeyboardButton("Groups", callback_data="noigroups"),
+                    InlineKeyboardButton("Anime", callback_data="noianime"),
+                    InlineKeyboardButton("Approve", callback_data="noiapprove"),
                 ],
                 [
                     InlineKeyboardButton("How To Add Me ❓", callback_data="cbhowtouse"),
@@ -194,26 +194,30 @@ async def cbsetup(_, query: CallbackQuery):
             ]
         ),
     )
-@Client.on_callback_query(filters.regex("noiwel"))
+@Client.on_callback_query(filters.regex("noigroups"))
 async def noiwel(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE WELCOME PLUGIN ( soon )**
-
-➯ /setwelcome for set welcome message.
-
-➯ /resetwelcome for reset welcome message.
+        f"""🏮 **HEAR THE ALL GROUPS COAMMNDS IF YOU WANT TO CHEAK THEN PRESS BUTTON TO CHEAK.**
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
         ),
     )
-@Client.on_callback_query(filters.regex("noilyric"))
+@Client.on_callback_query(filters.regex("noianime"))
 async def noilyric(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE LYRIC PLUGIN**
+        f"""🏮 **HEAR THE ANIME COMMANDS**
 
-➯ /lyric ( song name ) for the get lyric of song
+➯ /anime <anime>: returns information about the anime.
+➯ /character <character>: returns information about the character.
+➯ /manga <manga>: returns information about the manga.
+➯ /user <user>: returns information about a MyAnimeList user.
+➯ /upcoming: returns a list of new anime in the upcoming seasons.
+➯ /kaizoku <anime>: search an anime on animekaizoku.com
+➯ /kayo <anime>: search an anime on animekayo.com
+➯ /airing <anime>: returns anime airing info.
+➯ /whatanime - reply to gif or video
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
@@ -221,12 +225,16 @@ async def noilyric(_, query: CallbackQuery):
         ),
     )
     
-@Client.on_callback_query(filters.regex("noivoice"))
+@Client.on_callback_query(filters.regex("noiapprove"))
 async def noivoice(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 **HEAR THE VOICE PLUGIN**
+        f"""🏮 **HEAR THE APPROVE COMMANDS**
 
-➯ /tts fot get voice from text message
+➯ /approval: Check a user's approval status in this chat.
+➯ /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
+➯ /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
+➯ /approved: List all approved users.
+➯ /unapproveall: Unapprove ALL users in a chat. This cannot be undone.
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
@@ -241,3 +249,19 @@ async def close(_, query: CallbackQuery):
     if not a.can_manage_voice_chats:
         return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
     await query.message.delete()
+
+    
+    # BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO  BAZI-BRO
+    
+    # SETUPS COMMANDS
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
