@@ -335,9 +335,15 @@ async def noiwarns(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE PURGE COMMANDS**
 
-➯ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
-➯ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-➯ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
+➯ /warns <userhandle>: get a user's number, and reason, of warns.
+➯ /warnlist: list of all current warning filters
+➯ /warn <userhandle>: warn a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+➯ /dwarn <userhandle>: warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+➯ /resetwarn <userhandle>: reset the warns for a user. Can also be used as a reply.
+➯ /addwarn <keyword> <reply message>: set a warning filter on a certain keyword. If you want your keyword to   be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user.
+➯ /nowarn <keyword>: stop a warning filter
+➯ /warnlimit <num>: set the warning limit
+➯ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
