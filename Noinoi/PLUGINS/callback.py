@@ -359,7 +359,7 @@ async def fed3(_, query: CallbackQuery):
     
 # FILTER COMMANDS . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
 
-  @Client.on_callback_query(filters.regex("noifilter"))
+@Client.on_callback_query(filters.regex("noifilter"))
 async def noigroups(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 **HEAR THE GROUPS COMMANDS**
