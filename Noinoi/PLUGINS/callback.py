@@ -183,10 +183,17 @@ async def cbsetup(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("welcome", callback_data="noiwel"),
-                    InlineKeyboardButton("Lyric", callback_data="noilyric"),
-                    InlineKeyboardButton("voice", callback_data="noivoice"),
+                    InlineKeyboardButton("Admin", callback_data="noinoiadmin"),
+                    InlineKeyboardButton("Anime", callback_data="noinoianime"),
+                    InlineKeyboardButton("Channel", callback_data="noinoichannel"),
                 ],
+                
+                [
+                    InlineKeyboardButton("Chatbot", callback_data="noinoichatbot"),
+                    InlineKeyboardButton("Feds", callback_data="noinoifeds"),
+                    InlineKeyboardButton("Filters", callback_data="noinoifilters"),
+                ],
+                
                 [
                     InlineKeyboardButton("How To Add Me ❓", callback_data="cbhowtouse"),
                 ],
@@ -194,6 +201,35 @@ async def cbsetup(_, query: CallbackQuery):
             ]
         ),
     )
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 @Client.on_callback_query(filters.regex("noiwel"))
 async def noiwel(_, query: CallbackQuery):
     await query.edit_message_text(
