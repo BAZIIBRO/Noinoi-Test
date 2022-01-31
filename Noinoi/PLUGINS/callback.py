@@ -201,7 +201,21 @@ async def noiwel(_, query: CallbackQuery):
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+            [
+                [
+                    InlineKeyboardButton("Admin", callback_data="noiadmins"),
+                    InlineKeyboardButton("Promote", callback_data="noipromote"),
+                    InlineKeyboardButton("Bans", callback_data="noibans"),
+                ],
+                
+                [
+                    InlineKeyboardButton("Warns", callback_data="noiwarns"),
+                ],
+                
+                [
+                    InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")
+                ],            
+            ]
         ),
     )
 @Client.on_callback_query(filters.regex("noianime"))
@@ -221,7 +235,12 @@ async def noilyric(_, query: CallbackQuery):
 
 **✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]]
+            [
+                
+                [InlineKeyboardButton("🔙 Go Back", callback_data="cbsetup")]
+            
+            
+            ]
         ),
     )
     
