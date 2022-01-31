@@ -257,6 +257,104 @@ async def noiwel(_, query: CallbackQuery):
             ]
         ),
     )
+    
+# FEDS COMMANDS ******************************************************************************************************************************************* 
+
+@Client.on_callback_query(filters.regex("noifeds"))
+async def noifeds(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE ALL GROUPS COAMMNDS IF YOU WANT TO CHEAK THEN PRESS BUTTON TO CHEAK.**
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Owner", callback_data="fed1"),
+                    InlineKeyboardButton("Admins", callback_data="fed2"),
+                ],
+                [
+                    InlineKeyboardButton("Users", callback_data="fed3")
+                ],
+                [
+                    InlineKeyboardButton("Back", callback_data="cbsetup")
+                ],            
+            ]
+        ),
+    )
+    
+@Client.on_callback_query(filters.regex("fed1"))
+async def fed1(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE OWNER COMMANDS**
+
+➯ /newfed <fed_name>: Creates a Federation, One allowed per user
+➯ /renamefed <fed_id> <new_fed_name>: Renames the fed id to a new name
+➯ /delfed <fed_id>: Delete a Federation, and any information related to it. Will not cancel blocked users
+➯ /fpromote <user>: Assigns the user as a federation admin. Enables all commands for the user under Fed Admins
+➯ /fdemote <user>: Drops the User from the admin Federation to a normal User
+➯ /subfed <fed_id>: Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed
+➯ /unsubfed <fed_id>: Unsubscribes to a given fed ID
+➯ /setfedlog <fed_id>: Sets the group as a fed log report base for the federation
+➯ /unsetfedlog <fed_id>: Removed the group as a fed log report base for the federation
+➯ /fbroadcast <message>: Broadcasts a messages to all groups that have joined your fed
+➯ /ftransfer <byreply>: Changes the owner of current joined fed to the replied user
+➯ /fedsubs: Shows the feds your group is subscribed to (broken rn)
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("🔙 Go Back", callback_data="noifeds")]
+            
+            
+            ]
+        ),
+    ) 
+@Client.on_callback_query(filters.regex("fed2"))
+async def fed2(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE ADMINS COMMANDS**
+
+➯ /fban <user> <reason>: Fed bans a user
+➯ /unfban <user> <reason>: Removes a user from a fed ban
+➯ /fedinfo <fed_id>: Information about the specified Federation
+➯ /joinfed <fed_id>: Join the current chat to the Federation. Only chat owners can do this. Every chat can only be in one Federation
+➯ /leavefed <fed_id>: Leave the Federation given. Only chat owners can do this
+➯ /setfrules <rules>: Arrange Federation rules
+➯ /fedadmins: Show Federation admin
+➯ /fbanlist: Displays all users who are victimized at the Federation at this time
+➯ /fedchats: Get all the chats that are connected in the Federation
+➯ /chatfed : See the Federation in the current chat
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("🔙 Go Back", callback_data="noifeds")]
+            
+            
+            ]
+        ),
+    ) 
+  @Client.on_callback_query(filters.regex("fed3"))
+async def fed3(_, query: CallbackQuery):
+    await query.edit_message_text(
+        f"""🏮 **HEAR THE USERS COMMANDS**
+
+➯ /fbanstat: Shows if you/or the user you are replying to or their username is fbanned somewhere or not
+➯ /fednotif <on/off>: Federation settings not in PM when there are users who are fbaned/unfbanned
+➯ /frules: See Federation regulations
+
+**✨ ᴘᴏᴡᴇʀᴅ ʙʏ ɴᴏɪɴᴏɪ ᴍᴜꜱɪᴄ** """,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                
+                [InlineKeyboardButton("🔙 Go Back", callback_data="noifeds")]
+            
+            
+            ]
+        ),
+    ) 
 # groups enter commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. . . . . . .. . . . . . . . . 
 
 @Client.on_callback_query(filters.regex("noigroups"))
